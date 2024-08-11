@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-    </head>
-    <body>
-        <h1>dsada</h1>
-    </body>
-</html>
+<x-app-layout>
+    <div class="grid h-screen place-items-center">
+        <div>
+            <h1>Este es un ejemplo del uso de el layout de la app <x-arrow-down/></h1>
+        </div>
+    </div>    
+</x-app-layout>
