@@ -13,6 +13,8 @@ export default defineConfig({
             'resources/js/students.js',
             'resources/js/app.js',
             'resources/js/users.js',
+            'resources/js/login.js',
+            'resources/css/login.css',
         ]),
     ],
 });

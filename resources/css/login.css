@@ -1,0 +1,118 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: url('../../public/patiofca.jpg') no-repeat center center/cover;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 20px; /* Añade espacio entre los elementos */
+}
+.form-container {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    width: 400px;
+    text-align: center;
+    position: relative;
+    margin-left: -20px; /* Elimina el espacio entre los contenedores */
+}
+.logo-container {
+    margin-bottom: 20px;
+}
+img, video {
+    width: 9rem;
+    height: auto;
+    margin:auto;
+}
+/* .logo {
+    width: 100px;
+    height: auto;
+} */
+h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #007bff;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000; /* Cambiado a negro */
+    font-weight: 500;
+}
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+}
+.form-group input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+.btn {
+    display: block;
+    width: calc(100% + 20px); /* Extiende el botón hacia la derecha */
+    padding: 10px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background 0.3s, transform 0.3s;
+    margin: 0 auto; /* Centra el botón */
+}
+.btn:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+.btn:active {
+    background: #004494;
+    transform: translateY(0);
+}
+.welcome-container {
+    background: rgba(0, 123, 255, 0.7); /* Fondo azul transparente */
+    padding: 198px 40px; /* Aumenta el padding superior e inferior */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Mismo ancho que el formulario */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: -1; /* Mueve el contenedor azul antes del formulario */
+}
+.welcome-message {
+    color: #fff; /* Texto blanco para contraste */
+    font-size: 18px;
+}
+.welcome-container h2 {
+    color: #fff; /* Color blanco */
+    font-size: 24px; /* Tamaño de fuente */
+    margin-bottom: 20px; /* Espacio inferior */
+    font-weight: bold; /* Negrita */
+}
+.welcome-container p {
+    color: #fff; /* Color blanco */
+    font-size: 18px; /* Tamaño de fuente */
+    margin: 0; /* Sin márgenes */
+    line-height: 1.5; /* Altura de línea */
+}
