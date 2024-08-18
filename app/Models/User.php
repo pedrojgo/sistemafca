@@ -2,11 +2,39 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Model
+class User extends Authenticatable implements JWTSubject
 {
-    use HasFactory;
-    protected $table = 'users';
+    // ...
+    protected $tableName = 'users';
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+    /**
+     * Get the identifier that will be stored in the JWT payload.
+     *
+     * @return mixed
+     */
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * Return a key value array, containing any custom claims you want to add to the JWT.
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
 }

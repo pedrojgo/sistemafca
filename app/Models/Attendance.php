@@ -9,4 +9,31 @@ class Attendance extends Model
 {
     use HasFactory;
     protected $table = 'attendances';
+    protected $fillable = [
+        'student_id',
+        'lab_id',
+        'material_id',
+        'teacher_id',
+        'created_at',
+    ];
+
+     public function student()
+     {
+         return $this->belongsTo(Student::class);
+     }
+
+     public function lab()
+     {
+         return $this->belongsTo(Lab::class);
+     }
+
+     public function material()
+     {
+         return $this->belongsTo(Material::class);
+     }
+
+     public function teacher()
+     {
+         return $this->belongsTo(Teacher::class);
+     }
 }
