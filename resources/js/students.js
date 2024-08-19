@@ -1,3 +1,6 @@
+const button = document.getElementById('button-open-modal');
+const buttonClose = document.getElementById('button-close-modal');
+
 function updateDateTime() {
     const now = new Date();
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -8,11 +11,12 @@ function updateDateTime() {
 setInterval(updateDateTime, 1000);
 updateDateTime(); // Llamar de inmediato para evitar retraso en la actualización inicial
 
-function openModal() {
-    document.getElementById('modal').style.display = 'flex';
-}
 
-function closeModal() {
+button.addEventListener('click', () => {
+    document.getElementById('modal').style.display = 'flex';
+} )
+
+buttonClose.addEventListener('click', () => {
     document.getElementById('modal').style.display = 'none';
-}
+})
 

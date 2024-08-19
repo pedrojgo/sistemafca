@@ -1,3 +1,7 @@
+body{
+    background-color: #ffffff;
+}
+
 .shadow-app {
     box-shadow: 0 4px 12px #00000040;
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Attendance;
+use App\Models\Course;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class ViewController extends Controller
@@ -13,8 +15,12 @@ class ViewController extends Controller
     }
 
     public function students(){
-        $attendances = Attendance::with(['student', 'lab', 'material', 'teacher'])->get();
-        return view('home', ['attendances' => $attendances]);
+        $students = Student::with(['course'])->get();
+        $courses = Course::all();
+        return view('students', [
+            'students' => $students,
+            'courses' => $courses,
+        ]);
     }
      
     public function store(Request $request){   
@@ -36,4 +42,5 @@ class ViewController extends Controller
 
         return $attendance;
     }
+
 }

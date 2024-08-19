@@ -27,24 +27,7 @@
                 </div>
             </div>
             <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Alumno</th>
-                            <th>Alumno</th>
-                            <th>Alumno</th>
-                            <th>Alumno</th>
-                            <th>Alumno</th>
-                            <th>Alumno</th>
-                            <th>Alumno</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                    </tbody>
-                </table>
+               <x-students-table :students="$students" />
             </div>
         </div>
     </div>

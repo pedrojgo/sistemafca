@@ -1,13 +1,13 @@
 <x-app-layout>
     @vite('resources/css/login.css')
-    @vite('resources/js/login.js')
 <div class="container">
     <div class="form-container">
         <div class="logo-container">
             <img src="{{ asset('/logofcatransparente.png') }}" alt="fca icon">
         </div>
         <h2 id="formTitle">Iniciar Sesión</h2>
-        <form id="loginForm">
+        <form id="loginForm" action="{{ route('login') }}" method="POST">
+            @csrf
             <div class="form-group">
                 <label for="email">Correo Electrónico</label>
                 <input type="email" id="email" name="email" required>
