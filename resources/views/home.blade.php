@@ -1,51 +1,40 @@
 <x-app-layout>
-    @vite('resources/css/home.css')
-    @vite('resources/js/home.js')
+    @vite(['resources/css/home.css','resources/js/home.js'])
     <div class="header">
         <div class="title">
-            <img src="logofcatransparente.png" alt="Logo">
-            <h1 style="margin: 0;">Sistema de Asistencias Laboratorios FCA</h1>
+             <img width="48" src="{{ asset('/logofcatransparente.png') }}" alt="fca icon">
+             <h1 class="text-base font-bold">Sistema de Asistencias Laboratorios FCA</h1>
         </div>
-        <div class="date-time" id="date-time"></div>
+        <div  class="date-time text-sm" id="date-time"></div>
     </div>
-
-    <div class="container">
+    
+    <div class="flex w-full 500">
         <div class="sidebar">
-            <button>Alumnos</button>
-            <button>Asistencias</button>
-            <button>Usuarios</button>
+            <button 
+             onclick="location.href='{{ route('userView') }}'"
+             class="btn-custom px-6 py-3 text-white font-bold shadow-lg transition duration-300 ease-in-out transform hover:scale-95"
+             >
+                Alumnos
+            </button>
+            <button class="btn-custom px-6 py-3 text-white font-bold shadow-lg transition duration-300 ease-in-out transform hover:scale-95">
+                Asistencias
+            </button>
+            <button class="btn-custom px-6 py-3 text-white font-bold shadow-lg transition duration-300 ease-in-out transform hover:scale-95">
+                Usuarios
+            </button>
         </div>
 
-        <div class="main-content">
-            <div class="card">
-                <h3>Últimos registros</h3>
-                <table>
-                    <tr>
-                        <th>Alumno</th>
-                        <th>Alumno</th>
-                        <th>Alumno</th>
-                        <th>Alumno</th>
-                        <th>Alumno</th>
-                        <th>Alumno</th>
-                        <th>Alumno</th>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </table>
-            </div>
+        <div class="w-3/4 mx-auto p-16">
+          <x-attendance-table :attendances="$attendances" />
 
-            <div class="card generate-report">
-                <input type="text" placeholder="Fecha inicial">
-                <input type="text" placeholder="Fecha final">
-                <button>Generar</button>
+          <div class="w-2/3	 m-auto bg-white shadow-app rounded-xl p-6">
+            <h2 class="text-2xl mb-2">Generar Reporte</h2>
+            <div class="flex space-x-4 mb-4">
+                <input type="text" placeholder="Fecha inicial" class="flex-1 px-4 py-2 border border-gray-300 shadow-lg rounded-xl">
+                <input type="text" placeholder="Fecha final" class="flex-1 px-4 py-2 border border-gray-300 rounded-xl shadow-lg ">
             </div>
+            <button class="bg-green-400 text-white px-4 py-2  rounded-xl shadow-sm hover:bg-green-600">Generar</button>
+        </div>
         </div>
     </div>
 

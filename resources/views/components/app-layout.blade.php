@@ -18,7 +18,7 @@
             font-family: 'Roboto', sans-serif;
         }
     </style>
-    
+    @vite(['resources/css/app.css'])
     <title>laboratorio Sistema FCA</title>
 </head>
 <body>

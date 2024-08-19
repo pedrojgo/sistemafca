@@ -17,7 +17,7 @@ return new class extends Migration
                 $table->string('name',50)->unique();
                 $table ->boolean('active')->default(true);;
                 $table->timestamp('created_at')->useCurrent();
-                $table->timestamp('updated_at')->useCurrentOnUpdate();
+                $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
             });
         }
 
@@ -27,7 +27,7 @@ return new class extends Migration
                 $table->string('name',100)->unique();
                 $table->boolean('active')->default(true);;
                 $table->timestamp('created_at')->useCurrent();
-                $table->timestamp('updated_at')->useCurrentOnUpdate();
+                $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
             });
         }
 
@@ -37,7 +37,7 @@ return new class extends Migration
                 $table->string('name',100)->unique();
                 $table->boolean('active')->default(true);
                 $table->timestamp('created_at')->useCurrent();
-                $table->timestamp('updated_at')->useCurrentOnUpdate();
+                $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
             });
         }
 
@@ -47,18 +47,20 @@ return new class extends Migration
                 $table->string('name',50)->unique();
                 $table->boolean('active')->default(true);;
                 $table->timestamp('created_at')->useCurrent();
-                $table->timestamp('updated_at')->useCurrentOnUpdate();
+                $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
             });
         }
 
         if(!Schema::hasTable('students')){
             Schema::create('students',  function (Blueprint $table){ 
                 $table -> id();
-                $table -> string('uid')->unique();  
+                $table -> string('uid')->unique(); 
+                $table -> string('name');
+                $table -> string('email')->unique();
                 $table -> foreignId('course_id')->nullable()->constrained()->onDelete('set null');   
                 $table -> boolean('active')->default(true);;
                 $table -> timestamp('created_at')->useCurrent();
-                $table -> timestamp('updated_at')->useCurrentOnUpdate();
+                $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
             });
         }
 
@@ -71,7 +73,7 @@ return new class extends Migration
                 $table -> foreignId('teacher_id')->nullable()->constrained()->onDelete('set null');   
                 $table -> boolean('active')->default(true);;
                 $table -> timestamp('created_at')->useCurrent();
-                $table -> timestamp('updated_at')->useCurrentOnUpdate();
+                $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
             });
         }
 
@@ -84,7 +86,7 @@ return new class extends Migration
                 $table -> string('name')->unique();
                 $table -> boolean('active')->default(true);;
                 $table -> timestamp('created_at')->useCurrent();
-                $table -> timestamp('updated_at')->useCurrentOnUpdate();
+                $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
             });
         }
 

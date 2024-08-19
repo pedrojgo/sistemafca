@@ -15,6 +15,7 @@ export default defineConfig({
             'resources/js/users.js',
             'resources/js/login.js',
             'resources/css/login.css',
+            'resources/js/btn-download-code.js',
         ]),
     ],
 });
