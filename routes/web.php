@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AssistanceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ReportesController;
 use App\Http\Controllers\StudentController;
@@ -26,6 +27,7 @@ Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware([Authenticate::class])->group(function () {
     Route::get('/', [ViewController::class, 'home'])->name('homeView');
     Route::get('students', [ViewController::class, 'students'])->name('userView');
+    Route::get('assistances', [AssistanceController::class, 'index'])->name('assistanceView');
     Route::get('/users', function () {
         return view('users');
     })->name('usersView');
@@ -36,10 +38,9 @@ Route::middleware([Authenticate::class])->group(function () {
     Route::get('users/create', [UserController::class, 'create'])->name('userCreateView');
     Route::get('/student/{id}', [StudentController::class, 'getCode']);
     Route::get('/pdf/data', [ReportesController::class, 'pdf'])->name('pdfView');
+    Route::get('/student/{id}', [StudentController::class, 'getCode']);
+    Route::get('/assistance/search', [AssistanceController::class, 'search'])->name('assistance-search');
 });
-
-
-
 
 Route::middleware([ApiMiddleware::class])->group(function () {
     Route::get('/get/labs', function () {
