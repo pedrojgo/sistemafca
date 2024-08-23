@@ -1,3 +1,7 @@
+@php
+  $tableTitles = ['Nombre','Materia','Maestro','Laboratorio','Hora']   
+@endphp
+
 <x-app-layout>
     @vite('resources/css/assistances.css')
         <div class="header">
@@ -10,35 +14,52 @@
         <div class="main-content">
             <div class="sidebar">
                 <div class="filters">
-                    <label for="fecha-inicial">Fecha inicial</label>
-                    <input type="date" id="fecha-inicial" name="fecha-inicial">
-                    <label for="fecha-final">Fecha final</label>
-                    <input type="date" id="fecha-final" name="fecha-final">
-                    <button type="button">Buscar</button>
+                <form action="{{ route('assistance-search') }}" method="GET">
+                    @csrf
+                    <label for="name" class="text-black pl-3">Nombre</label>
+                    <input type="text" id="name" name="name" class="text-black pl-3">
+                   
+                    <label for="date-initial" class="text-black pl-3">Fecha inicial</label>
+                    <input type="datetime-local" id="date-initial" name="date-initial" class="text-black pl-3">
+                   
+                    <label for="date-final" class="text-black pl-3">Fecha final</label>
+                    <input type="datetime-local" id="date-final" name="date-final" class="text-black pl-3">
+                   
+                    <button type="submit">Buscar</button>
                     <button type="button" class="clear">Borrar filtros</button>
+                    </form>
                 </div>
             </div>
             <div class="content">
-                <h2>Asistencias</h2>
                 <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Alumno</th>
-                                <th>Alumno</th>
-                                <th>Alumno</th>
-                                <th>Alumno</th>
-                                <th>Alumno</th>
-                                <th>Alumno</th>
-                                <th>Alumno</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                        </tbody>
-                    </table>
+                    <div class="p-16 text-base">
+                        <div class="card py-4 px-8 shadow-app">
+                            <h3 class="text-2xl mb-2">Asistencias</h3>
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-blue-500">
+                                    <tr class="px-6 py-3 text-center text-lg font-bold text-white uppercase tracking-wider">
+                                      @foreach($tableTitles as $title )
+                                        <th class="px-6 py-3">{{$title}}</th>
+                                      @endforeach
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-400">
+                                    @foreach ($assistances as $assistance)
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-base text-center">{{ $assistance->student->name }}</td>
+                                            <td class="px-6 py-4 whitespace-nowrap  text-base text-center">{{ $assistance->material->name }}</td>
+                                            <td class="px-6 py-4 whitespace-nowrap  text-base text-center">{{ $assistance->teacher->name }}</td>
+                                            <td class="px-6 py-4 whitespace-nowrap  text-base text-center">{{ $assistance->lab->name }}</td>
+                                            <td class="px-6 py-4 whitespace-nowrap  text-base text-center">{{ $assistance->created_at }}</td>
+                                        </tr>
+                                    @endforeach
+                                    <div class="pagination">
+                                        {{ $assistances->links() }}
+                                    </div>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>                    
                 </div>
             </div>
         </div>
@@ -61,5 +82,14 @@
         }
         setInterval(updateDateTime, 1000);
         updateDateTime(); // Llamar de inmediato para evitar retraso en la actualización inicial
+
+        document.querySelector('.clear').addEventListener('click', function() {
+        document.getElementById('name').value = '';
+        document.getElementById('date-initial').value = '';
+        document.getElementById('date-final').value = '';
+           
+        // Redirigir a una ruta específica después de limpiar los filtros
+        window.location.href = "{{ route('assistanceView') }}"; // Reemplaza 'ruta-deseada' por la ruta que desees
+    });
     </script>
 </x-app-layout>
