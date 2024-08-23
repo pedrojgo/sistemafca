@@ -10,7 +10,10 @@ use Illuminate\Http\Request;
 class ViewController extends Controller
 {
     public function home(){
-        $attendances = Attendance::with(['student', 'lab', 'material', 'teacher'])->get();
+        $perPage = 8;
+        $attendances = Attendance::with(['student', 'lab', 'material', 'teacher'])
+        ->orderBy('created_at', 'desc')
+        ->paginate($perPage);
         return view('home', ['attendances' => $attendances]);
     }
 
