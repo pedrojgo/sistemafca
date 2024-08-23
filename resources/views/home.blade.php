@@ -1,48 +1,68 @@
 <x-app-layout>
-    @vite(['resources/css/home.css','resources/js/home.js'])
-    <div class="header">
-        <div class="title">
-             <img width="48" src="{{ asset('/logofcatransparente.png') }}" alt="fca icon">
-             <h1 class="text-base font-bold">Sistema de Asistencias Laboratorios FCA</h1>
+    @vite(['resources/js/home.js'])
+    <div class="flex justify-between items-center text-white bg-app p-4 shadow-md">
+        <div class="flex items-center space-x-4">
+            <img width="48" src="{{ asset('/logofcatransparente.png') }}" alt="fca icon">
+            <h1 class="text-lg font-bold">Sistema de Asistencias Laboratorios FCA</h1>
         </div>
-        <div  class="date-time text-sm" id="date-time"></div>
+        <div class="text-sm" id="date-time"></div>
     </div>
     
-    <div class="flex w-full 500">
-        <div class="sidebar">
+    <div class="flex w-full absolute">
+        <div class="flex flex-col space-y-4 bg-white p-6 shadow-app h-[103vh]">
             <button 
-             onclick="location.href='{{ route('userView') }}'"
-             class="btn-custom px-6 py-3 text-white font-bold shadow-lg transition duration-300 ease-in-out transform hover:scale-95"
-             >
+                onclick="location.href='{{ route('userView') }}'"
+                class="btn-custom px-10 md:px-12 lg:px-16 py-1 lg:py-2 text-white font-bold shadow-lg rounded-3xl"
+            >
                 Alumnos
             </button>
             <button 
-            onclick="location.href='{{ route('assistanceView') }}'"
-            class="btn-custom px-6 py-3 text-white font-bold shadow-lg transition duration-300 ease-in-out transform hover:scale-95">
+                onclick="location.href='{{ route('assistanceView') }}'"
+              class="btn-custom px-10 md:px-12 lg:px-16 py-1 lg:py-2 text-white font-bold shadow-lg  rounded-3xl"
+            >
                 Asistencias
             </button>
-            <button class="btn-custom px-6 py-3 text-white font-bold shadow-lg transition duration-300 ease-in-out transform hover:scale-95">
+            <button 
+             class="btn-custom px-10 md:px-12 lg:px-16 py-1 lg:py-2 text-white font-bold shadow-lg  rounded-3xl"
+            >
                 Usuarios
             </button>
         </div>
-
-        <div class="w-3/4 mx-auto p-16">
-          <x-attendance-table :attendances="$attendances" />
-
-          <div class="w-2/3	 m-auto bg-white shadow-app rounded-xl p-6">
-            <h2 class="text-2xl mb-2">Generar Reporte</h2>
-            <form action="{{route('pdfView')}}" method="Get">
-             <div class="flex space-x-4 mb-4">
-                    <input type="datetime-local" id="date_initial" name="date_initial" placeholder="Fecha inicial" class="flex-1 px-4 py-2 border border-gray-300 shadow-lg rounded-xl">
-                    <input type="datetime-local" id="date_final" name="date_final" placeholder="Fecha final" class="flex-1 px-4 py-2 border border-gray-300 rounded-xl shadow-lg ">
-             </div>
-             <button class="bg-green-400 text-white px-8 py-3  rounded-xl shadow-sm hover:bg-green-600">Generar</button>
-            </form>
-        </div>
+    
+        <div class="flex-1 mx-auto mb-5 md:p-6 lg:p-8 xl:p-10">
+            <x-attendance-table :attendances="$attendances" />
+    
+            <div class="w-2/3 m-auto bg-white shadow-md rounded-xl p-4 mt-8">
+                <h2 class="text-2xl mb-4">Generar Reporte</h2>
+                <form action="{{ route('pdfView') }}" method="GET">
+                    <div class="flex space-x-4 mb-4">
+                        <input 
+                            type="datetime-local" 
+                            id="date_initial" 
+                            name="date_initial" 
+                            placeholder="Fecha inicial" 
+                            class="flex-1 px-4 py-2 border border-gray-300 shadow-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                        <input 
+                            type="datetime-local" 
+                            id="date_final" 
+                            name="date_final" 
+                            placeholder="Fecha final" 
+                            class="flex-1 px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                    </div>
+                    <button 
+                        class="bg-green-500 text-white px-8 py-3 rounded-xl shadow-md hover:bg-green-600 transition-colors duration-200"
+                    >
+                        Generar
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
-
-    <div class="footer">
+    
+    <div class="fixed bottom-0 left-0 right-0 text-center py-4 bg-blue-600 text-white text-sm">
         © 2024 Sistema de Asistencias Laboratorios FCA
     </div>
+    
 </x-app-layout>
