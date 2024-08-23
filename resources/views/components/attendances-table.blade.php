@@ -23,6 +23,9 @@
                         <td class="px-6 py-4 whitespace-nowrap  text-base text-center">{{ $attendance->created_at }}</td>
                     </tr>
                 @endforeach
+                <div class="pagination">
+                    {{ $attendances->links() }}
+                </div>
             </tbody>
         </table>
     </div>

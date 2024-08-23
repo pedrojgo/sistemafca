@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ReportesController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ViewController;
@@ -13,7 +14,6 @@ use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-use Picqer\Barcode\BarcodeGeneratorPNG;
 
 
 
@@ -31,10 +31,11 @@ Route::middleware([Authenticate::class])->group(function () {
     })->name('usersView');
 
     Route::post('crete/student', [StudentController::class, 'store'])->name('create-student');
-    Route::get('users-', [UserController::class, 'index']);
+    Route::get('users', [UserController::class, 'index']);
     Route::post('users', [UserController::class, 'store'])->name('create-users');
     Route::get('users/create', [UserController::class, 'create'])->name('userCreateView');
     Route::get('/student/{id}', [StudentController::class, 'getCode']);
+    Route::get('/pdf/data', [ReportesController::class, 'pdf'])->name('pdfView');
 });
 
 
@@ -78,6 +79,7 @@ Route::middleware([ApiMiddleware::class])->group(function () {
             'material_id' => $validatedData['material_id'],  
             'created_at' => $validatedData['created_at'], 
         ]);
-        return response()->json(['success' => 'attendances created']);
+        $message = 'Entrada registrada de '. $student->name;
+        return response()->json(['success' => 'attendances created', 'messages' => $message]);
     });
 });

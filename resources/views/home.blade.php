@@ -29,11 +29,13 @@
 
           <div class="w-2/3	 m-auto bg-white shadow-app rounded-xl p-6">
             <h2 class="text-2xl mb-2">Generar Reporte</h2>
-            <div class="flex space-x-4 mb-4">
-                <input type="text" placeholder="Fecha inicial" class="flex-1 px-4 py-2 border border-gray-300 shadow-lg rounded-xl">
-                <input type="text" placeholder="Fecha final" class="flex-1 px-4 py-2 border border-gray-300 rounded-xl shadow-lg ">
-            </div>
-            <button class="bg-green-400 text-white px-4 py-2  rounded-xl shadow-sm hover:bg-green-600">Generar</button>
+            <form action="{{route('pdfView')}}" method="Get">
+             <div class="flex space-x-4 mb-4">
+                    <input type="datetime-local" id="date_initial" name="date_initial" placeholder="Fecha inicial" class="flex-1 px-4 py-2 border border-gray-300 shadow-lg rounded-xl">
+                    <input type="datetime-local" id="date_final" name="date_final" placeholder="Fecha final" class="flex-1 px-4 py-2 border border-gray-300 rounded-xl shadow-lg ">
+             </div>
+             <button class="bg-green-400 text-white px-8 py-3  rounded-xl shadow-sm hover:bg-green-600">Generar</button>
+            </form>
         </div>
         </div>
     </div>
