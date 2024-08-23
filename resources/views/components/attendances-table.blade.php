@@ -2,11 +2,11 @@
   $tableTitles = ['Nombre','Materia','Maestro','Laboratorio','Hora']   
 @endphp
 
-<div class="p-16 text-base">
-    <div class="card py-4 px-8 shadow-app">
+<div class="p-8 text-base ">
+    <div class="card py-4 px-10 shadow-app rounded-3xl">
         <h3 class="text-2xl mb-2">Últimos registros</h3>
         <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-blue-500">
+            <thead class="bg-app">
                 <tr class="px-6 py-3 text-center text-lg font-bold text-white uppercase tracking-wider">
                   @foreach($tableTitles as $title )
                     <th class="px-6 py-3">{{$title}}</th>
