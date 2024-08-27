@@ -38,6 +38,7 @@ Route::middleware([Authenticate::class])->group(function () {
     })->name('usersView');
 
     Route::post('crete/student', [StudentController::class, 'store'])->name('create-student');
+    Route::post('create/student', [StudentController::class, 'store'])->name('create-student');
     Route::get('users', [UserController::class, 'index']);
     Route::post('users', [UserController::class, 'store'])->name('create-users');
     Route::get('users/create', [UserController::class, 'create'])->name('userCreateView');
@@ -58,6 +59,7 @@ Route::middleware([Authenticate::class])->group(function () {
 
     Route::post('/lab/create', [LabsController::class, 'add'])->name('labs.add');
     Route::delete('/lab/{id}', [LabsController::class, 'delete'])->name('labs.delete');
+    Route::post('/create/create', [UserController::class, 'users'])->name('user.add');
 });
 
 Route::middleware([ApiMiddleware::class])->group(function () {

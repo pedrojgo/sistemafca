@@ -7,7 +7,6 @@
         </div>
         <div class="text-sm" id="date-time"></div>
     </div>
-    
     <div class="flex w-full absolute">
         <div class="flex flex-col space-y-4 bg-white p-6 shadow-app h-[105vh]">
             <button 
@@ -43,10 +42,8 @@
                 cerrar seccion
             </button>
         </div>
-    
         <div class="flex-1 mx-auto mb-5 md:p-6 lg:p-8 xl:p-10">
             <x-attendance-table :attendances="$attendances" />
-    
             <div class="w-2/3 m-auto bg-white shadow-md rounded-xl p-4 mt-8">
                 <h2 class="text-2xl mb-4">Generar Reporte</h2>
                 <form action="{{ route('pdfView') }}" method="GET">
@@ -75,9 +72,9 @@
             </div>
         </div>
     </div>
-    
+</div>
     <div class="fixed bottom-0 left-0 right-0 text-center py-4 bg-blue-600 text-white text-sm">
         © 2024 Sistema de Asistencias Laboratorios FCA
-    </div>
-    
+    </div>  
+</div> 
 </x-app-layout>

@@ -8,6 +8,7 @@ use App\Models\Lab;
 use App\Models\Material;
 use App\Models\Student;
 use App\Models\Teacher;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ViewController extends Controller
@@ -26,9 +27,15 @@ class ViewController extends Controller
         return view('students', [
             'students' => $students,
             'courses' => $courses,
+        ]); 
+    }
+    public function users(){
+        $users = User::all();
+        return view('users', [
+            'users' => $users
         ]);
     }
-     
+
     public function store(Request $request){   
         $validatedData = $request->validate([
             'student_id' => 'required|number',
