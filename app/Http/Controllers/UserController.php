@@ -12,7 +12,9 @@ class UserController extends Controller
 {
     public function index(){   
         $users =  User::all();
-        return $users; 
+        return view('users',[
+            'users' => $users
+        ]);
     }
 
     public function store(Request $request){   
