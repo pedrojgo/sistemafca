@@ -28,7 +28,7 @@
 }
 .sidebar {
     width: 20%;
-    background-color: #e6e6e6;
+    background-color: #ffffff;
     padding: 15px;
 }
 .content {
@@ -53,6 +53,7 @@
     width: calc(100% - 22px); /* Ajuste para el padding */
     margin-bottom: 15px;
     box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
+    color: black;
 }
 .filters button {
     background-color: #28a745;
@@ -118,14 +119,14 @@
     font-weight: bold;
 }
 .footer nav a {
-    color: black;
+    color: white;
     margin: 0 15px;
     text-decoration: none;
     font-size: inherit;
     font-weight: inherit;
 }
 .footer p {
-    color: black;
+    color: white;
     margin: 0;
     margin-left: 15px;
     position: absolute;

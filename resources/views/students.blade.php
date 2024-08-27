@@ -2,7 +2,7 @@
     @vite(['resources/css/students.css', 'resources/js/students.js'])
     <div class="header">
         <div class="logo-title">
-            <img src="logofcatransparente.png" alt="Logo">
+            <img  width="48" src="{{ asset('/logofcatransparente.png') }}" alt="Logo">
             <h1>Sistema de Asistencias Laboratorios FCA</h1>
         </div>
         <div class="date-time" id="date-time"></div>
@@ -10,12 +10,26 @@
     <div class="main-content">
         <div class="sidebar">
             <div class="filters">
-                <label for="fecha-inicial" class="text-black font-bold p-2">Fecha inicial</label>
-                <input type="date" id="fecha-inicial" name="fecha-inicial">
-                <label for="fecha-final" class="text-black font-bold p-2">Fecha final</label>
-                <input type="date" id="fecha-final" name="fecha-final">
-                <button type="button">Buscar</button>
+                <form action="{{ route('students-search') }}" method="GET">
+                 @csrf
+                <label for="name" class="text-black font-bold p-2">Nombre</label>
+                <input type="text" id="filtro-name" name="name">
+            
+                <label for="email" class="text-black font-bold p-2">Correo</label>
+                <input type="email" id="filtro-emial" name="email">
+                
+                <label for="carrera" class="text-black font-bold p-2">Carrera:</label>
+                <select id="filtre-course_id" name="course_id"
+                    class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300">
+                    <option value="">Selecciona una carrera</option>
+                    @foreach ($courses as $course)
+                        <option value="{{ $course->id }}">{{ $course->name }}</option>
+                    @endforeach
+                </select>
+            
+                <button type="submit">Buscar</button>
                 <button type="button" class="clear">Borrar filtros</button>
+            </form>
             </div>
         </div>
         <div class="content">
@@ -30,15 +44,15 @@
         </div>
     </div>
     <div class="footer">
-        <p>© 2024 Sistema de Asistencias Laboratorios FCA</p>
+        <p class="text-white">© 2024 Sistema de Asistencias Laboratorios FCA</p>
         <nav>
             <button class="text-base text-white m-4" onclick="location.href='{{ route('homeView') }}'">
                 Dashboard
             </button>
-            <button class="text-base text-white m-4" onclick="location.href='{{ route('homeView') }}'">
+            <button class="text-base text-white m-4" onclick="location.href='{{ route('assistanceView') }}'">
                 Asistencias
             </button>
-            <button class="text-base text-white m-4" onclick="location.href='{{ route('homeView') }}'">
+            <button class="text-base text-white m-4">
                 Usuarios
             </button>
 
@@ -86,5 +100,12 @@
             </form>
         </div>
     </div>
-
+    <script>
+        document.querySelector('.clear').addEventListener('click', function() {
+            document.getElementById('filtro-name').value = '';
+            document.getElementById('filtro-emial').value = '';
+            document.getElementById('filtre-course_id').value = '';
+            window.location.href = "{{ route('studentsView') }}";
+        });
+    </script>
 </x-app-layout>

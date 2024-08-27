@@ -2,8 +2,12 @@
 
 use App\Http\Controllers\AssistanceController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\LabsController;
+use App\Http\Controllers\MaterialsController;
 use App\Http\Controllers\ReportesController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeachersController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ViewController;
 use App\Http\Middleware\ApiMiddleware;
@@ -26,8 +30,14 @@ Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware([Authenticate::class])->group(function () {
     Route::get('/', [ViewController::class, 'home'])->name('homeView');
-    Route::get('students', [ViewController::class, 'students'])->name('userView');
+    Route::get('/students', [ViewController::class, 'students'])->name('studentsView');
     Route::get('assistances', [AssistanceController::class, 'index'])->name('assistanceView');
+    Route::get('categories', [ViewController::class, 'categories'])->name('categoriesView');
+    Route::get('/users', function () {
+        return view('users');
+    })->name('usersView');
+
+    Route::post('crete/student', [StudentController::class, 'store'])->name('create-student');
     Route::post('create/student', [StudentController::class, 'store'])->name('create-student');
     Route::get('users', [UserController::class, 'index']);
     Route::post('users', [UserController::class, 'store'])->name('create-users');
@@ -36,6 +46,19 @@ Route::middleware([Authenticate::class])->group(function () {
     Route::get('/pdf/data', [ReportesController::class, 'pdf'])->name('pdfView');
     Route::get('/student/{id}', [StudentController::class, 'getCode']);
     Route::get('/assistance/search', [AssistanceController::class, 'search'])->name('assistance-search');
+    Route::get('/students/search', [StudentController::class, 'search'])->name('students-search');
+
+    Route::post('/teacher/create', [TeachersController::class, 'add'])->name('teachers.add');
+    Route::delete('/teachers/delete/{id}', [TeachersController::class, 'delete'])->name('teachers.delete');
+
+    Route::post('/course/create', [CourseController::class, 'add'])->name('courses.add');
+    Route::delete('/course/{id}', [CourseController::class, 'delete'])->name('courses.delete');
+
+    Route::post('/material/create', [MaterialsController::class, 'add'])->name('materials.add');
+    Route::delete('/material/{id}', [MaterialsController::class, 'delete'])->name('materials.delete');
+
+    Route::post('/lab/create', [LabsController::class, 'add'])->name('labs.add');
+    Route::delete('/lab/{id}', [LabsController::class, 'delete'])->name('labs.delete');
     Route::post('/create/create', [UserController::class, 'users'])->name('user.add');
 });
 

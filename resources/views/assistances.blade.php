@@ -1,5 +1,5 @@
 @php
-  $tableTitles = ['Nombre','Materia','Maestro','Laboratorio','Hora']   
+  $tableTitles = ['Nombre', 'Materia', 'Maestro', 'Laboratorio', 'Hora']; 
 @endphp
 
 <x-app-layout>
@@ -45,12 +45,42 @@
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-400">
                                     @foreach ($assistances as $assistance)
-                                        <tr>
-                                            <td class="px-6 py-4 whitespace-nowrap text-base text-center">{{ $assistance->student->name }}</td>
-                                            <td class="px-6 py-4 whitespace-nowrap  text-base text-center">{{ $assistance->material->name }}</td>
-                                            <td class="px-6 py-4 whitespace-nowrap  text-base text-center">{{ $assistance->teacher->name }}</td>
-                                            <td class="px-6 py-4 whitespace-nowrap  text-base text-center">{{ $assistance->lab->name }}</td>
-                                            <td class="px-6 py-4 whitespace-nowrap  text-base text-center">{{ $assistance->created_at }}</td>
+                                    <tr>
+                                    <td>
+                                            @if ($assistance->student)
+                                            {{ $assistance->student->name }}
+                                        @else
+                                            <strong>sin Estudiante asignado</strong>
+                                        @endif
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-base text-center">
+                                        @if ($assistance->material)
+                                            {{ $assistance->material->name }}
+                                        @else
+                                            <strong>sin Materia asignada</strong>
+                                        @endif
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-base text-center">
+                                        @if ($assistance->teacher)
+                                            {{ $assistance->teacher->name }}
+                                        @else
+                                            <strong>sin profesor asignado</strong>
+                                        @endif
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-base text-center">
+                                        @if ($assistance->lab)
+                                            {{ $assistance->lab->name }}
+                                        @else
+                                            <strong>sin Laboratorio asignado</strong>
+                                        @endif
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-base text-center">
+                                        @if ($assistance->created_at)
+                                            {{ $assistance->created_at }}
+                                        @else
+                                            <strong>sin Fecha de ingreso </strong>
+                                        @endif
+                                    </td>
                                         </tr>
                                     @endforeach
                                     <div class="pagination">

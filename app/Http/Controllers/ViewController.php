@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Attendance;
 use App\Models\Course;
+use App\Models\Lab;
+use App\Models\Material;
 use App\Models\Student;
+use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -15,7 +18,7 @@ class ViewController extends Controller
         $attendances = Attendance::with(['student', 'lab', 'material', 'teacher'])
         ->orderBy('created_at', 'desc')
         ->paginate($perPage);
-        return view('home', ['attendances' => $attendances]);
+        return view('home',  compact('attendances'));
     }
 
     public function students(){
@@ -52,5 +55,18 @@ class ViewController extends Controller
 
         return $attendance;
     }
+    
+    public function categories(){
+        $teacher = Teacher::all();
+        $course = Course::all();
+        $labs = Lab::all();
+        $materials= Material::all();
 
+        return view('categories',[
+            'teachers' => $teacher,
+            'courses' => $course,
+            'labs' => $labs,
+            'materials' => $materials
+        ]);
+    }
 }
