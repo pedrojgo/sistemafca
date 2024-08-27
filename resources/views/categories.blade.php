@@ -185,7 +185,7 @@
 
                 <div class="bg-white rounded-lg shadow-md p-6">
                     <div class="flex items-center justify-between mb-4">
-                        <h2 class="text-2xl font-bold">Materia</h2>
+                        <h2 class="text-2xl font-bold">Laboratorios</h2>
                         <div id="labs-open-add-modal" class="bg-green-500 text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 cursor-pointer">
                             <x-plus-icon />
                         </div>
@@ -277,6 +277,14 @@
 
         document.getElementById('course-close-add-modal').addEventListener('click', function() {
             document.getElementById('course-add-modal').classList.add('hidden');
+        });
+
+        document.getElementById('materials-open-add-modal').addEventListener('click', function() {
+        document.getElementById('materials-add-modal').classList.remove('hidden');
+        });
+
+        document.getElementById('materials-close-add-modal').addEventListener('click', function() {
+            document.getElementById('materials-add-modal').classList.add('hidden');
         });
 
         document.getElementById('labs-open-add-modal').addEventListener('click', function() {
