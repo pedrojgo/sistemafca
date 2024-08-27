@@ -28,11 +28,7 @@ Route::middleware([Authenticate::class])->group(function () {
     Route::get('/', [ViewController::class, 'home'])->name('homeView');
     Route::get('students', [ViewController::class, 'students'])->name('userView');
     Route::get('assistances', [AssistanceController::class, 'index'])->name('assistanceView');
-    Route::get('/users', function () {
-        return view('users');
-    })->name('usersView');
-
-    Route::post('crete/student', [StudentController::class, 'store'])->name('create-student');
+    Route::post('create/student', [StudentController::class, 'store'])->name('create-student');
     Route::get('users', [UserController::class, 'index']);
     Route::post('users', [UserController::class, 'store'])->name('create-users');
     Route::get('users/create', [UserController::class, 'create'])->name('userCreateView');
@@ -40,6 +36,7 @@ Route::middleware([Authenticate::class])->group(function () {
     Route::get('/pdf/data', [ReportesController::class, 'pdf'])->name('pdfView');
     Route::get('/student/{id}', [StudentController::class, 'getCode']);
     Route::get('/assistance/search', [AssistanceController::class, 'search'])->name('assistance-search');
+    Route::post('/create/create', [UserController::class, 'users'])->name('user.add');
 });
 
 Route::middleware([ApiMiddleware::class])->group(function () {
