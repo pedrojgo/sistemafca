@@ -11,7 +11,7 @@
     <div class="flex w-full absolute">
         <div class="flex flex-col space-y-4 bg-white p-6 shadow-app h-[105vh]">
             <button 
-                onclick="location.href='{{ route('userView') }}'"
+                onclick="location.href='{{ route('studentsView') }}'"
                 class="btn-custom px-10 md:px-12 lg:px-16 py-1 lg:py-2 text-white font-bold shadow-lg rounded-3xl"
             >
                 Alumnos
@@ -26,6 +26,21 @@
              class="btn-custom px-10 md:px-12 lg:px-16 py-1 lg:py-2 text-white font-bold shadow-lg  rounded-3xl"
             >
                 Usuarios
+            </button>
+            <button 
+            class="btn-custom px-10 md:px-12 lg:px-16 py-1 lg:py-2 text-white font-bold shadow-lg  rounded-3xl"
+                  onclick="location.href='{{ route('categoriesView') }}'"
+             >
+              Categorías 
+           </button>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button 
+                 type="submit"
+                 class="bg-red-600 px-10 md:px-12 lg:px-16 py-1 lg:py-2 text-white font-bold shadow-lg  rounded-3xl"
+                >
+            </form>
+                cerrar seccion
             </button>
         </div>
     
