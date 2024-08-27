@@ -22,7 +22,7 @@ class ViewController extends Controller
     }
 
     public function students(){
-        $students = Student::with(['course'])->get();
+        $students = Student::with(['course'])->paginate(8);
         $courses = Course::all();
         return view('students', [
             'students' => $students,

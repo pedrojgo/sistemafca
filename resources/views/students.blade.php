@@ -33,7 +33,7 @@
             </div>
         </div>
         <div class="content">
-            <h2 class="text-5xl font-bold pl-20 ">Alumnos</h2>
+            <h2 class="text-5xl font-bold pl-20">Alumnos</h2>
             <div class="icon-container" id="button-open-modal">
                 <div
                     class="bg-green-500 text-white font-bold py-5 px-5 rounded-full shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 mr-20 mt-10">
