@@ -151,11 +151,41 @@
             <tbody>
                 @foreach ($attendances as $attendance)
                 <tr>
-                    <td >{{ $attendance->student->name }}</td>
-                    <td >{{ $attendance->material->name }}</td>
-                    <td >{{ $attendance->teacher->name }}</td>
-                    <td >{{ $attendance->lab->name }}</td>
-                    <td >{{ $attendance->created_at }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-base text-center">
+                        @if ($attendance->student)
+                            {{ $attendance->student->name }}
+                        @else
+                            <strong>sin Estudiante asignado</strong>
+                        @endif
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-base text-center">
+                        @if ($attendance->material)
+                            {{ $attendance->material->name }}
+                        @else
+                            <strong>sin Materia asignada</strong>
+                        @endif
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-base text-center">
+                        @if ($attendance->teacher)
+                            {{ $attendance->teacher->name }}
+                        @else
+                            <strong>sin profesor asignado</strong>
+                        @endif
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-base text-center">
+                        @if ($attendance->lab)
+                            {{ $attendance->lab->name }}
+                        @else
+                            <strong>sin Laboratorio asignado</strong>
+                        @endif
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-base text-center">
+                        @if ($attendance->created_at)
+                            {{ $attendance->created_at }}
+                        @else
+                            <strong>sin Fecha de ingreso </strong>
+                        @endif
+                    </td>
                 </tr>
             @endforeach
             </tbody>
