@@ -102,7 +102,7 @@
                 <button class="text-base text-white m-4" onclick="location.href='{{ route('studentsView') }}'">
                     Alumnos
                 </button>
-                <button class="text-base text-white m-4">
+                <button class="text-base text-white m-4"   onclick="location.href='{{ route('usersView') }}'">
                     Usuarios
                 </button>
     

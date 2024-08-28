@@ -23,6 +23,7 @@
             </button>
             <button 
              class="btn-custom px-10 md:px-12 lg:px-16 py-1 lg:py-2 text-white font-bold shadow-lg  rounded-3xl"
+              onclick="location.href='{{ route('usersView') }}'"
             >
                 Usuarios
             </button>

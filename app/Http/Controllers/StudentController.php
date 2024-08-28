@@ -26,7 +26,7 @@ class StudentController extends Controller
         
         $students = Student::with(['course'])->get();
         $courses = Course::all();
-        return redirect()->route('students.index')->with([
+        return redirect()->route('studentsView')->with([
             'students' => $students,
             'courses' => $courses,
         ]);
