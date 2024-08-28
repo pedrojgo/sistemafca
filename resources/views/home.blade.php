@@ -1,5 +1,5 @@
 <x-app-layout>
-    @vite(['resources/js/home.js'])
+    @vite(['resources/js/home.js', 'resources/css/app.css'])
     <div class="flex justify-between items-center text-white bg-app p-4 shadow-md">
         <div class="flex items-center space-x-4">
             <img width="48" src="{{ asset('/logofcatransparente.png') }}" alt="fca icon">
@@ -23,6 +23,7 @@
             </button>
             <button 
              class="btn-custom px-10 md:px-12 lg:px-16 py-1 lg:py-2 text-white font-bold shadow-lg  rounded-3xl"
+              onclick="location.href='{{ route('usersView') }}'"
             >
                 Usuarios
             </button>

@@ -29,7 +29,6 @@
 }
 .sidebar {
     width: 20%;
-    background-color: #e6e6e6;
     padding: 15px;
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
     height: 100vh; /* Extender hasta abajo */
@@ -43,10 +42,8 @@
     flex-grow: 1;
 }
 .filters {
-    background-color: #e6e6e6; /* Cambiar a gris */
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
 .filters input, .filters select {
@@ -55,7 +52,6 @@
     border-radius: 20px;
     width: calc(100% - 22px); /* Ajuste para el padding */
     margin-bottom: 15px;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
 }
 .filters button {
     background-color: #28a745;
@@ -116,14 +112,14 @@ table td {
     font-weight: bold;
 }
 .footer nav a {
-    color: black;
+    color: white;
     margin: 0 15px;
     text-decoration: none;
     font-size: inherit;
     font-weight: inherit;
 }
 .footer p {
-    color: black;
+    color: white;
     margin: 0;
     margin-left: 15px;
     position: absolute;

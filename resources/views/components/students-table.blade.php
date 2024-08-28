@@ -4,7 +4,6 @@
 
 <div class="p-16 text-base">
     <div class="card py-4 px-8 shadow-app">
-        <h3 class="text-2xl mb-2">Alumnos</h3>
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-blue-500">
                 <tr class="px-6 py-3 text-center text-lg font-bold text-white uppercase tracking-wider">
@@ -49,6 +48,9 @@
                     </td>
                     </tr>
                     @endforeach
+                    <div class="pagination">
+                        {{ $students->links() }}
+                    </div>
                 </tbody>
             </table>
         </div>

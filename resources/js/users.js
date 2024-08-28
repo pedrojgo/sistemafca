@@ -1,15 +1,8 @@
-function openModal() {
-    document.getElementById('modal').style.display = 'block';
-}
+document.getElementById('button-open-modal').addEventListener('click', () => {
+    document.getElementById('modal').classList.remove('hidden');
+})
 
-function closeModal() {
-    document.getElementById('modal').style.display = 'none';
-}
+document.getElementById('button-close-modal').addEventListener('click', () => {
+     document.getElementById('modal').classList.add('hidden');
+})
 
-// Cerrar el modal cuando el usuario haga clic fuera del contenido del modal
-window.onclick = function(event) {
-    const modal = document.getElementById('modal');
-    if (event.target == modal) {
-        modal.style.display = 'none';
-    }
-}

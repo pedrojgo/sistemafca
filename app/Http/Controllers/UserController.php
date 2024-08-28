@@ -30,11 +30,33 @@ class UserController extends Controller
             'password' => bcrypt($validatedData['password']),
         ]);
 
-        return $user;
+        return redirect()->back()->with('success', 'usuario agregado exitosamente.');
     }
 
     public function create(){
         return view('create-users');
     }
+
+    public function search (Request $request){
+        $pageSize = 8;
+        $validatedData = $request->validate([
+            'name' => 'nullable|string',
+            'email' => 'nullable|email',
+        ]);
+        
+        $query = User::query();
+        
+        if($request->filled('name')) {
+            $query->where('name', 'like', '%'.$validatedData['name'].'%');
+        }
     
+        if ($request->filled('email')) {
+            $query->where('email', 'like', '%'. $validatedData['email'].'%');
+        }
+        $users = $query->paginate($pageSize);
+    
+        return view('users',[
+            'users' => $users
+        ]);
+    }
 }

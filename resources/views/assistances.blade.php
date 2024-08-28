@@ -6,13 +6,13 @@
     @vite('resources/css/assistances.css')
         <div class="header">
             <div class="logo-title">
-                <img src="logofcatransparente.png" alt="Logo">
+                <img  width="48" src="{{ asset('/logofcatransparente.png') }}" alt="Logo">
                 <h1>Sistema de Asistencias Laboratorios FCA</h1>
             </div>
             <div class="date-time" id="date-time"></div>
         </div>
         <div class="main-content">
-            <div class="sidebar">
+            <div class="sidebar shadow-app">
                 <div class="filters">
                 <form action="{{ route('assistance-search') }}" method="GET">
                     @csrf
@@ -31,10 +31,10 @@
                 </div>
             </div>
             <div class="content">
-                <div class="table-container">
+                <h2 class="text-5xl font-bold pl-20">Asistencias</h2>
+                <div>
                     <div class="p-16 text-base">
                         <div class="card py-4 px-8 shadow-app">
-                            <h3 class="text-2xl mb-2">Asistencias</h3>
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead class="bg-blue-500">
                                     <tr class="px-6 py-3 text-center text-lg font-bold text-white uppercase tracking-wider">
@@ -94,11 +94,18 @@
             </div>
         </div>
         <div class="footer">
-            <p>© 2024 Sistema de Asistencias Laboratorios FCA</p>
+            <p class="text-white">© 2024 Sistema de Asistencias Laboratorios FCA</p>
             <nav>
-                <a href="#">Dashboard</a>
-                <a href="#">Asistencias</a>
-                <a href="#">Usuarios</a>
+                <button class="text-base text-white m-4" onclick="location.href='{{ route('homeView') }}'">
+                    Dashboard
+                </button>
+                <button class="text-base text-white m-4" onclick="location.href='{{ route('studentsView') }}'">
+                    Alumnos
+                </button>
+                <button class="text-base text-white m-4"   onclick="location.href='{{ route('usersView') }}'">
+                    Usuarios
+                </button>
+    
             </nav>
         </div>
     </div>
