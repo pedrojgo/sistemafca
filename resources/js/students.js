@@ -10,13 +10,3 @@ function updateDateTime() {
 }
 setInterval(updateDateTime, 1000);
 updateDateTime(); // Llamar de inmediato para evitar retraso en la actualización inicial
-
-
-button.addEventListener('click', () => {
-    document.getElementById('modal').style.display = 'flex';
-} )
-
-buttonClose.addEventListener('click', () => {
-    document.getElementById('modal').style.display = 'none';
-})
-

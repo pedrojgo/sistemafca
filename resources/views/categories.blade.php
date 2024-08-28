@@ -15,7 +15,8 @@
             </div>
 
             <div class="grid grid-cols-3 gap-6 mt-10 px-20">
-                <div class="bg-white rounded-lg shadow-md p-6">
+
+                <div class= "overflow-y-auto max-h-96 bg-white rounded-lg shadow-md p-6">
                     <div class="flex items-center justify-between mb-4">
                         <h2 class="text-2xl font-bold">Maestros</h2>
                         <div id="teacher-open-add-modal" class="bg-green-500 text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 cursor-pointer">
@@ -24,7 +25,7 @@
                     </div>
                     <table class="min-w-full">
                         <thead>
-                            <tr class="bg-app">
+                            <tr class="bg-app sticky -top-3.5 z-10">
                                 <th class="px-4 py-2">Id</th>
                                 <th class="px-4 py-2">Nombre</th>
                                 <th class="px-4 py-2">Actions</th>
@@ -72,7 +73,7 @@
                 </div>
 
                 <!-- Table 2 -->
-                <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="overflow-y-auto max-h-96 bg-white rounded-lg shadow-md p-6">
                     <div class="flex items-center justify-between mb-4">
                         <h2 class="text-2xl font-bold">Carreras</h2>
                         <div id="course-open-add-modal" class="bg-green-500 text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 cursor-pointer">
@@ -81,7 +82,7 @@
                     </div>
                     <table class="min-w-full">
                         <thead>
-                            <tr class="bg-app">
+                            <tr class="bg-app sticky -top-3.5 z-10">
                                 <th class="px-4 py-2">Id</th>
                                 <th class="px-4 py-2">Nombre</th>
                                 <th class="px-4 py-2">Actions</th>
@@ -128,7 +129,7 @@
                 </div>
 
                 <!-- Table 3 -->
-                <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="overflow-y-auto max-h-96 bg-white rounded-lg shadow-md p-6">
                     <div class="flex items-center justify-between mb-4">
                         <h2 class="text-2xl font-bold">Materia</h2>
                         <div id="materials-open-add-modal" class="bg-green-500 text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 cursor-pointer">
@@ -137,7 +138,7 @@
                     </div>
                     <table class="min-w-full">
                         <thead>
-                            <tr class="bg-app">
+                            <tr class="bg-app sticky -top-3.5 z-10">
                                 <th class="px-4 py-2">Id</th>
                                 <th class="px-4 py-2">Nombre</th>
                                 <th class="px-4 py-2">Actions</th>
@@ -183,16 +184,16 @@
                     </div>
                 </div>
 
-                <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="overflow-y-auto max-h-96 bg-white rounded-lg shadow-md p-6">
                     <div class="flex items-center justify-between mb-4">
                         <h2 class="text-2xl font-bold">Laboratorios</h2>
-                        <div id="labs-open-add-modal" class="bg-green-500 text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 cursor-pointer">
+                        <div id="labs-open-add-modal" class=" bg-green-500 text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 cursor-pointer">
                             <x-plus-icon />
                         </div>
                     </div>
                     <table class="min-w-full">
                         <thead>
-                            <tr class="bg-app">
+                            <tr class="bg-app sticky -top-3.5 z-10">
                                 <th class="px-4 py-2">Id</th>
                                 <th class="px-4 py-2">Nombre</th>
                                 <th class="px-4 py-2">Actions</th>
